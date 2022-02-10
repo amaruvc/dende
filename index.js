@@ -1,7 +1,7 @@
 const axios = require("axios");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
-const moment = require("moment"); // require
+const moment = require("moment");
 const chalk = require("chalk");
 
 const app = express();
@@ -14,7 +14,7 @@ app.get("/", async (req, res) => {
 
   const usuarios = data.map((x) => {
     const usuario = {
-      id: uuidv4(),
+      id: uuidv4().slice(-6),
       nombre: x.name.first,
       apellido: x.name.last,
       fecha_registro: moment().format("MMMM Do YYYY, h:mm:ss a"),
